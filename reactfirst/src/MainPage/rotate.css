@@ -1,0 +1,135 @@
+/* Container holding all items, positioned centrally */
+.center {
+    position: relative;
+    width: 550px;   /* Set the size of the container */
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* Allow items to overflow outside the container */
+    padding: 50px; /* Prevent items from spilling out */
+    /* border: 2px solid wheat; */
+  }
+  
+  /* Styling for the background image */
+  .background-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 0; /* Keep the background image behind the rotating items */
+  }
+  
+  /* Styling for each rotating item */
+  .item {
+    position: absolute;
+    width: 65px;  /* Set size of rotating items */
+    height: 65px;
+    transform-origin: center;  /* Make the rotation center on the item itself */
+    z-index: 1;  /* Ensure the items are above the background image */
+    animation: rotate-items 10s linear infinite;  /* Rotation animation */
+  }
+  
+  /* Keyframes for rotating items in a circular path */
+  @keyframes rotate-items {
+    0% {
+      transform: rotate(0deg) translateY(-300px) rotate(0deg); /* Initial rotation (items above the center) */
+    }
+    25% {
+      transform: rotate(90deg) translateY(-300px) rotate(-90deg);  /* Move to 90 degrees */
+    }
+    50% {
+      transform: rotate(180deg) translateY(-300px) rotate(-180deg);  /* Halfway around */
+    }
+    75% {
+      transform: rotate(270deg) translateY(-300px) rotate(-270deg);  /* Move to 270 degrees */
+    }
+    100% {
+      transform: rotate(360deg) translateY(-300px) rotate(-360deg);  /* Complete the circle */
+    }
+  }
+  
+  /* Additional customization for each item to ensure they are spaced out equally */
+  .center .item:nth-child(1) {
+    animation-delay: 0s;  /* First item */
+  }
+  
+  .center .item:nth-child(2) {
+    animation-delay: -2s;  /* Second item */
+  }
+  
+  .center .item:nth-child(3) {
+    animation-delay: -4s;  /* Third item */
+  }
+  
+  .center .item:nth-child(4) {
+    animation-delay: -6s;  /* Fourth item */
+  }
+  
+  .center .item:nth-child(5) {
+    animation-delay: -8s;  /* Fifth item */
+  }
+
+  @media (max-width: 768px) {
+    .center {
+      width: 70vw;
+      height: 70vw;
+      padding: 15vw;
+    }
+  
+    .item {
+      width: 15vw;
+      height: 15vw;
+    }
+  
+    @keyframes rotate-items {
+      0% {
+        transform: rotate(0deg) translateY(-40vw) rotate(0deg); /* Adjust for smaller items */
+      }
+      25% {
+        transform: rotate(90deg) translateY(-40vw) rotate(-90deg);
+      }
+      50% {
+        transform: rotate(180deg) translateY(-40vw) rotate(-180deg);
+      }
+      75% {
+        transform: rotate(270deg) translateY(-40vw) rotate(-270deg);
+      }
+      100% {
+        transform: rotate(360deg) translateY(-40vw) rotate(-360deg);
+      }
+    }
+  }
+  
+  /* For very small screens (Mobile phones) */
+  @media (max-width: 480px) {
+    .center {
+      width: 90vw;
+      height: 90vw;
+      padding: 20vw;
+    }
+  
+    .item {
+      width: 18vw;
+      height: 18vw;
+    }
+  
+    @keyframes rotate-items {
+      0% {
+        transform: rotate(0deg) translateY(-15vw) rotate(0deg); /* Adjust for smaller items */
+      }
+      25% {
+        transform: rotate(90deg) translateY(-15vw) rotate(-90deg);
+      }
+      50% {
+        transform: rotate(180deg) translateY(-15vw) rotate(-180deg);
+      }
+      75% {
+        transform: rotate(270deg) translateY(-15vw) rotate(-270deg);
+      }
+      100% {
+        transform: rotate(360deg) translateY(-15vw) rotate(-360deg);
+      }
+    }
+  }
